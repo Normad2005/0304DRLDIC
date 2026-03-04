@@ -1,5 +1,7 @@
 # Jim Yang's Personal Professional Page
 
+![Homepage Snapshot](snapshot.png)
+
 A minimalist, high-contrast, and dynamic personal professional page inspired by modern corporate design systems (such as the Hostinger Presson template).
 
 ## Features
