@@ -1,0 +1,340 @@
+/* Root Variables for minimalist, bold, monochrome style */
+:root {
+    --primary-color: #1a1a1a;       /* Deep grey-black */
+    --secondary-color: #f4f4f4;     /* Off-white */
+    --accent-color: #d1bfae;       /* Subtle sand/beige accent */
+    --text-dark: #222222;          /* Main dark text */
+    --text-light: #ffffff;         /* Main light text */
+    --line-color: rgba(30, 30, 30, 0.1); 
+    --line-color-light: rgba(255, 255, 255, 0.1);
+    
+    /* Typography */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* Layout */
+    --band-padding: 8rem 2rem;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* Custom cursor */
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background-color: var(--secondary-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Cursor */
+.cursor-dot {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease, width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Layout Blocks (Bands/Stripes) */
+.band {
+    position: relative;
+    padding: var(--band-padding);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-band {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.light-band {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    border-top: 1px solid var(--line-color);
+    border-bottom: 1px solid var(--line-color);
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+/* Structural Layout Variations */
+.asym-left {
+    padding-left: 5%;
+    padding-right: 25%;
+}
+
+.asym-right {
+    padding-left: 25%;
+    padding-right: 5%;
+    text-align: right;
+}
+
+.center-aligned {
+    text-align: center;
+    max-width: 800px;
+}
+
+/* Typography Styles */
+.name-title {
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 8vw, 10rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.8;
+    max-width: 400px;
+    margin-bottom: 2rem;
+}
+
+.intro-label {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.section-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 500;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.body-text {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+/* Time Display Specifics */
+.time-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 3rem 0;
+}
+
+.time-display {
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 10vw, 12rem);
+    font-weight: 300;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+/* Subtle separator for time */
+.time-display::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    right: 0;
+    width: 30%;
+    height: 4px;
+    background-color: var(--accent-color);
+    transform-origin: right;
+}
+
+.date-display {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+/* Buttons and Links */
+.primary-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.primary-button:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Decorative Elements (Presson Template Characteristics) */
+.decorative-line {
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+    margin: 2rem 0;
+}
+
+.abstract-shape {
+    position: absolute;
+    border: 1px solid var(--line-color-light);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.shape-1 {
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+    top: -10vw;
+    right: -10vw;
+}
+
+.shape-2 {
+    width: 20vw;
+    height: 60vh;
+    bottom: -10vh;
+    left: 10vw;
+    border: none;
+    border-left: 1px solid var(--line-color-light);
+    border-right: 1px solid var(--line-color-light);
+}
+
+.v-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20%;
+    width: 1px;
+    background-color: var(--line-color);
+}
+
+/* Animations & Transitions */
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUpAnim 1s var(--transition-smooth) forwards;
+}
+
+.slide-up-delay-1 {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUpAnim 1s var(--transition-smooth) 0.2s forwards;
+}
+
+.slide-up-delay-2 {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUpAnim 1s var(--transition-smooth) 0.4s forwards;
+}
+
+.slide-up-delay-3 {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUpAnim 1s var(--transition-smooth) 0.6s forwards;
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(40px);
+    animation: slideInRightAnim 1s var(--transition-smooth) 0.5s forwards;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnim 1.5s var(--transition-smooth) forwards;
+}
+
+.fade-in-delay {
+    opacity: 0;
+    animation: fadeInAnim 1.5s var(--transition-smooth) 1s forwards;
+}
+
+@keyframes slideUpAnim {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRightAnim {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInAnim {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .asym-left, .asym-right {
+        padding-left: 10%;
+        padding-right: 10%;
+        text-align: left;
+    }
+    
+    .time-container {
+        justify-content: flex-start;
+    }
+    
+    .v-line {
+        display: none;
+    }
+    
+    .time-display::after {
+        left: 0;
+        right: auto;
+        transform-origin: left;
+    }
+}
