@@ -115,16 +115,78 @@ body {
     background-color: #c0ab99;
 }
 
-/* Force all previously animated classes to be fully visible instantly! */
-.slide-up,
-.slide-up-delay-1,
-.slide-up-delay-2,
-.slide-up-delay-3,
-.slide-in-right,
-.fade-in,
-.fade-in-delay,
-.pulse-subtle {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
+/* Smooth Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.slide-up-delay-1 {
+    animation: slideUp 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.slide-up-delay-2 {
+    animation: slideUp 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+.slide-up-delay-3 {
+    animation: slideUp 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.8s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+.fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+    opacity: 0;
+}
+
+.fade-in-delay {
+    animation: fadeIn 1.2s ease-out 0.8s forwards;
+    opacity: 0;
+}
+
+/* Add a subtle hover effect for the entire timeline container */
+.time-container:hover .time-display {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
 }
